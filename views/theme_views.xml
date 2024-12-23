@@ -1,0 +1,37 @@
+<!--<odoo>
+<record id="view_theme_tree" model="ir.ui.view">
+    <field name="name">theme.tree</field>
+    <field name="model">theme</field>
+    <field name="arch" type="xml">
+        <tree string="Thèmes">
+            <field name="name"/>
+            <field name="description"/>
+            <field name="stagiaire_id"/>
+        </tree>
+    </field>
+</record>
+
+<record id="view_theme_form" model="ir.ui.view">
+    <field name="name">theme.form</field>
+    <field name="model">theme</field>
+    <field name="arch" type="xml">
+        <form string="Thème">
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="stagiaire_id"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+ <record id="action_themes" model="ir.actions.act_window">
+    <field name="name">Thèmes</field>
+    <field name="res_model">theme</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_id" ref="view_theme_tree"/>
+</record>
+
+</odoo> -->
