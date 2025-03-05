@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_attestation_form" model="ir.ui.view">
+            <field name="name">attestation.form</field>
+            <field name="model">attestation</field>
+            <field name="arch" type="xml">
+                <form string="Attestation">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="nom_stagiaire"/>
+                                <field name="nom_entreprise"/>
+                            </group>
+                            <group>
+                                <field name="duree_stage"/>
+                                <field name="projet"/>
+                            </group>
+                            <group>
+                                <field name="Commentaire"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+    </record>
+    <record id="view_attestation_tree" model="ir.ui.view">
+        <field name="name">attestation.tree</field>
+        <field name="model">attestation</field>
+        <field name="arch" type="xml">
+            <tree string="Attestations">
+                <field name="nom_stagiaire"/>
+                <field name="nom_entreprise"/>
+                <field name="duree_stage"/>
+                <field name="projet"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_attestation_kanban" model="ir.ui.view">
+        <field name="name">attestation.kanban</field>
+        <field name="model">attestation</field>
+        <field name="arch" type="xml">
+            <kanban string="Attestations">
+                <field name="nom_stagiaire"/>
+                <field name="nom_entreprise"/>
+                <field name="duree_stage"/>
+                <field name="projet"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <div class="oe_kanban_details">
+                                <field name="nom_stagiaire"/>
+                                <field name="nom_entreprise"/>
+                                <field name="duree_stage"/>
+                                <field name="projet"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_attestation_form" model="ir.actions.act_window">
+        <field name="name">Créer une attestation</field>
+        <field name="res_model">attestation</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_attestation_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_attestation_list" model="ir.actions.act_window">
+        <field name="name">Attestations</field>
+        <field name="res_model">attestation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_attestation_tree"/>
+    </record>
+
+
+    </data>
+</odoo>

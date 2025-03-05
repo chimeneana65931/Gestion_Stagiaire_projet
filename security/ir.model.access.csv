@@ -1,7 +1,13 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_stagiaire,access_stagiaire,model_gestion_stagiaire,base.group_user,1,1,1,1
-access_encadreur,access_encadreur,model_encadreur,,1,1,1,1
-access_projet,access_projet,model_projet,,1,1,1,1
-access_evaluation,access_evaluation,model_evaluation,,1,1,1,1
-access_theme,access_theme,model_theme,,1,1,1,1
-access_presence,access_presence,model_presence,,1,1,1,1
+
+# Encadreurs : peuvent gérer les stagiaires (lecture, écriture, création, suppression)
+access_encadreur_stagiaires,Encadreur: gérer les stagiaires,base.model_res_users,custom_module.group_encadreur,1,1,1,1
+
+# Encadreurs Administrateurs : peuvent gérer les stagiaires et encadreurs
+access_encadreur_admin_users,Encadreur Admin: gérer encadreurs et stagiaires,base.model_res_users,custom_module.group_encadreur_admin,1,1,1,1
+
+# Stagiaires : peuvent seulement voir et modifier leurs propres informations
+access_stagiaire_users,Stagiaire: lecture et modification,base.model_res_users,custom_module.group_stagiaire,1,1,0,0
+
+
+

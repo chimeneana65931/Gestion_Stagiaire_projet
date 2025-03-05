@@ -1,4 +1,6 @@
-<!--<odoo>
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
     <record id="view_projet_form" model="ir.ui.view">
         <field name="name">projet.form</field>
         <field name="model">projet</field>
@@ -32,8 +34,9 @@
     </record>
 
      <record id="action_projets" model="ir.actions.act_window">
-    <field name="name">Projets</field>
-    <field name="res_model">projet</field>
-    <field name="view_mode">tree,form</field>
-    </record>
-</odoo> -->
+        <field name="name">Projets</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">tree,form</field>
+     </record>
+    </data>
+</odoo>

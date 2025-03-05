@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!-- Action pour créer un utilisateur (Stagiaire ou Encadreur) -->
+        <record id="action_create_user" model="ir.actions.act_window">
+            <field name="name">Créer un Utilisateur</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">form</field>
+            <field name="target">current</field>
+        </record>
+
+        <!-- Action pour afficher la liste des utilisateurs -->
+        <record id="action_list_users" model="ir.actions.act_window">
+            <field name="name">Liste des Utilisateurs</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+
+        <!-- Action pour afficher les présences des stagiaires -->
+        <record id="action_stagiaire_presence" model="ir.actions.act_window">
+            <field name="name">Présence des Stagiaires</field>
+            <field name="res_model">hr.attendance</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('employee_id.user_id.is_stagiaire', '=', True)]</field>
+        </record>
+
+        <!-- Menu principal "Gestion stagiaire" -->
+        <menuitem id="menu_utilisateur" name="Gestion des Stagiaires" sequence="10"/>
+
+        <!-- Sous-menu Utilisateur qui permet de créer un nouvel utilisateur -->
+        <menuitem id="menu_utilisateur_utilisateur" name="Utilisateur"  groups="base.group_user" parent="menu_utilisateur" action="action_create_user" sequence="1"/>
+
+        <!-- Sous-menu Stagiaires qui affiche la liste des stagiaires -->
+        <menuitem id="menu_stagiaire" name="Stagiaires" parent="menu_utilisateur_utilisateur"  groups="base.group_user" action="action_list_stagiaires" sequence="2"/>
+
+        <!-- Sous-menu Encadreurs qui affiche la liste des encadreurs -->
+        <menuitem id="menu_encadreur" name="Encadreurs" parent="menu_utilisateur_utilisateur" groups="base.group_user" action="action_list_encadreurs" sequence="3"/>
+
+        <!-- Sous-menu pour afficher la liste des présences -->
+        <menuitem id="menu_presence_list" name="Présences" parent="menu_utilisateur" action="action_stagiaire_presence" sequence="4"/>
+
+        <!-- Sous menu pour afficher Projets -->
+        <menuitem id="menu_projet_list" name="Projets" parent="menu_utilisateur" action="action_projets" sequence="5"/>
+
+        <menuitem id="menu_evaluation_list" name="Evaluations" parent="menu_utilisateur" action="action_stagiaire_evaluation" sequence="6"/>
+
+        <menuitem id="submenu_attestation_list" name="Attestations" parent="menu_utilisateur" action="action_attestation_list" sequence="7"/>
+
+
+
+
+
+        <!--record id="view_form_stagiaires" model="ir.ui.view">
+            <field name="name">view.form.stagiaires</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="login"/>
+                            <field name="active"/>
+                            <field name="is_stagiaire"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record-->
+
+
+        <!--record id="view_form_encadreurs" model="ir.ui.view">
+            <field name="name">view.form.encadreurs</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="login"/>
+                            <field name="active"/>
+                            <field name="is_encadreur"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record-->
+
+
+
+    </data>
+</odoo>

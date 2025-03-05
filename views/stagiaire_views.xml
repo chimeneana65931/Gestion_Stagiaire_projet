@@ -1,4 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <data>
+         <!-- Action pour afficher la liste des stagiaires -->
+     <record id="action_list_stagiaires" model="ir.actions.act_window">
+         <field name="name">Liste des Stagiaires</field>
+         <field name="res_model">res.users</field>
+         <field name="view_mode">tree,form</field>
+     </record>
+
+      <!-- Vues pour les stagiaires -->
+        <record id="view_list_stagiaires" model="ir.ui.view">
+            <field name="name">view.list.stagiaires</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="login"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+      <!-- Ajout des vues aux actions -->
+        <record id="action_list_stagiaires" model="ir.actions.act_window">
+            <field name="view_id" ref="view_list_stagiaires"/>
+        </record>
 
    <!-- <record id="view_sale_order_form_inherit" model="ir.ui.view">
     <field name="name">sale.order.form.inherit</field>
@@ -52,81 +79,7 @@
     <field name="name">Stagiaires</field>
     <field name="res_model">gestion.stagiaire</field>
     <field name="view_mode">tree,form</field>
-
-
-
     </record>-->
 
-    <!-- views/stagiaire_views.xml -->
-<odoo>
-    <record id="view_users_form_inherit_stagiaire" model="ir.ui.view">
-        <field name="name">res.users.form.inherit.stagiaire</field>
-        <field name="model">res.users</field>
-        <field name="inherit_id" ref="base.view_users_form"/>
-        <field name="arch" type="xml">
-            <xpath expr="//group[@name='group_other_info']" position="before">
-                <group string="Stage">
-
-<!--                    <field name="entreprise_accueil"/>-->
-<!--                    <field name="tuteur"/>-->
-<!--                    <field name="date_debut_stage"/>-->
-<!--                    <field name="date_fin_stage"/>-->
-<!--                    <field name="duree_stage"/>-->
-                </group>
-            </xpath>
-        </field>
-    </record>
-
-    <!-- Vue pour gérer les stagiaires -->
-    <record id="view_stagiaire_tree" model="ir.ui.view">
-        <field name="name">gestion.stagiaire.tree</field>
-        <field name="model">gestion.stagiaire</field>
-        <field name="arch" type="xml">
-            <tree>
-                <field name="name"/>
-                <field name="entreprise_accueil"/>
-                <field name="tuteur"/>
-                <field name="date_debut_stage"/>
-                <field name="date_fin_stage"/>
-                <field name="duree_stage"/>
-            </tree>
-        </field>
-    </record>
-
-    <record id="view_stagiaire_form" model="ir.ui.view">
-        <field name="name">gestion.stagiaire.form</field>
-        <field name="model">gestion.stagiaire</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="entreprise_accueil"/>
-                        <field name="tuteur"/>
-                        <field name="date_debut_stage"/>
-                        <field name="date_fin_stage"/>
-                        <field name="duree_stage"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
-    <!-- views/stagiaire_views.xml -->
-<odoo>
-    <!-- Action pour afficher les stagiaires -->
-    <record id="action_stagiaire" model="ir.actions.act_window">
-        <field name="name">Stagiaires</field>
-        <field name="res_model">gestion.stagiaire</field>
-        <field name="view_mode">tree,form</field>
-        <field name="target">current</field>
-    </record>
-</odoo>
-
-</odoo>
-
-
-
-
-
+    </data>
 </odoo>

@@ -1,12 +1,14 @@
 from odoo import models, fields
+class Projet(models.Model):
+    _name = 'projet'
 
-#class Projet(models.Model):
+    name = fields.Char(string="Project Name", required=True)
+    description = fields.Text(string="Description", required=True)
+    date_debut = fields.Date(string="Start Date", required=True)
+    date_fin = fields.Date(string="End Date", required=True)
 
-   # _name = 'projet'
-    #_description = 'Projets des stagiaires'
+    # Ajout du champ stagiaire_id pour la relation avec le modèle stagiaire
+    stagiaire_id = fields.Many2one('gestion_stagiaire.stagiaire', string="Stagiaire")
 
-    #name = fields.Char('Nom du Projet', required=True)
-    #description = fields.Text('Description')
-    #stagiaire_id = fields.Many2one('gestion.stagiaire', string='Stagiaire')
-    #date_debut = fields.Date('Date de début')
-    #date_fin = fields.Date('Date de fin')
+
+
