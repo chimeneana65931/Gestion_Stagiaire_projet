@@ -36,7 +36,7 @@
             </tree>
         </field>
     </record>
-    <record id="view_attestation_kanban" model="ir.ui.view">
+    <!--record id="view_attestation_kanban" model="ir.ui.view">
         <field name="name">attestation.kanban</field>
         <field name="model">attestation</field>
         <field name="arch" type="xml">
@@ -59,23 +59,20 @@
                 </templates>
             </kanban>
         </field>
-    </record>
+    </record-->
 
-    <record id="action_attestation_form" model="ir.actions.act_window">
+    <!--record id="action_attestation_form" model="ir.actions.act_window">
         <field name="name">Créer une attestation</field>
         <field name="res_model">attestation</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="view_attestation_form"/>
         <field name="target">new</field>
-    </record>
+    </record -->
 
     <record id="action_attestation_list" model="ir.actions.act_window">
         <field name="name">Attestations</field>
         <field name="res_model">attestation</field>
-        <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="view_attestation_tree"/>
+        <field name="view_mode">tree,form,kanban</field>
     </record>
-
-
     </data>
 </odoo>

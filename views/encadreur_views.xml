@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
    <data>
-        <!--record id="group_encadreur" model="res.groups">
-            <field name="name">Encadreurs</field>
-            <field name="category_id" ref="base.module_category_user_management"/>
-        </record>
-
-        <record id="encadreur" model="res.users">
-            <field name="name">Encadreur Example</field>
-            <field name="login">encadreur@example.com</field>
-            <field name="password">password</field>
-            <field name="email">encadreur@example.com</field>
-            <field name="groups_id" eval="[(4, ref('group_encadreur'))]"/>
-        </record-->
-
-
     <!-- Action pour afficher la liste des encadreurs -->
         <record id="action_list_encadreurs" model="ir.actions.act_window">
             <field name="name">Liste des Encadreurs</field>
             <field name="res_model">res.users</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="domain">[('groups_id', 'in', [140])]</field>
+
         </record>
             <!-- Vues pour les encadreurs -->
-        <record id="view_list_encadreurs" model="ir.ui.view">
+        <!--record id="view_list_encadreurs" model="ir.ui.view">
             <field name="name">view.list.encadreurs</field>
             <field name="model">res.users</field>
             <field name="arch" type="xml">
@@ -33,11 +21,6 @@
                     <field name="active"/>
                 </tree>
             </field>
-        </record>
-
-        <record id="action_list_encadreurs" model="ir.actions.act_window">
-            <field name="view_id" ref="view_list_encadreurs"/>
-        </record>
-
+        </record-->
     </data>
 </odoo>

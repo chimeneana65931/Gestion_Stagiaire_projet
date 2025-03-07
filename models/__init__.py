@@ -5,5 +5,7 @@ from . import stagiaire
 from . import presence
 from . import attestation
 from . import projet
+from . import Encadrement
+from . import res_user
 
 

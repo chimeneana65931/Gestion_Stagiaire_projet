@@ -1,63 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
-           <record id="view_presence_form" model="ir.ui.view">
-            <field name="name">presence.form</field>
-            <field name="model">presence</field>
-            <field name="arch" type="xml">
-            <form string="Presence">
-                <group>
-                    <field name="date"/>  <!-- Assurez-vous que le champ "date" existe dans le modèle -->
-                    <field name="heure_arrivee"/>
-                    <field name="heure_depart"/>
-                    <field name="nbreHeureJour"/>
-                </group>
-            </form>
-        </field>
-    </record>
 
-        <record id="view_presence_tree" model="ir.ui.view">
-            <field name="name">presence.tree</field>
-            <field name="model">presence</field>
-            <field name="arch" type="xml">
-                <tree string="Présences">
-                    <field name="date"/>
-                    <field name="heure_arrivee"/>
-                    <field name="heure_depart"/>
-                    <field name="nbreHeureJour"/>
-                </tree>
-            </field>
-        </record>
-        <!--record id="view_presence_kanban" model="ir.ui.view">
-            <field name="name">presence.kanban</field>
-            <field name="model">presence</field>
-            <field name="arch" type="xml">
-                <kanban string="Présences">
-                    <field name="date"/>
-                    <field name="heure_arrivee"/>
-                    <field name="heure_depart"/>
-                    <field name="nbreHeureJour"/>
-                    <templates>
-                        <t t-name="kanban-box">
-                            <div class="oe_kanban_card">
-                                <div class="oe_kanban_details">
-                                    <field name="date"/>
-                                    <field name="heure_arrivee"/>
-                                    <field name="heure_depart"/>
-                                    <field name="nbreHeureJour"/>
-                                </div>
-                            </div>
-                        </t>
-                    </templates>
-                </kanban>
-            </field>
-        </record-->
-
+        <!-- Action pour afficher les présences des stagiaires -->
         <record id="action_stagiaire_presence" model="ir.actions.act_window">
             <field name="name">Présences</field>
-            <field name="res_model">presence</field>
-            <field name="view_mode">tree,form</field>
+            <field name="res_model">hr.attendance</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="domain">[('employee_id.user_id.is_stagiaire', '=', True)]</field>
         </record>
+
     </data>
 </odoo>
-

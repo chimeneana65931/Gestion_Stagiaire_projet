@@ -5,7 +5,8 @@
      <record id="action_list_stagiaires" model="ir.actions.act_window">
          <field name="name">Liste des Stagiaires</field>
          <field name="res_model">res.users</field>
-         <field name="view_mode">tree,form</field>
+         <field name="view_mode">tree,form,kanban</field>
+         <field name="domain">[('groups_id', 'in', [139])]</field>
      </record>
 
       <!-- Vues pour les stagiaires -->
@@ -20,11 +21,6 @@
                     <field name="active"/>
                 </tree>
             </field>
-        </record>
-
-      <!-- Ajout des vues aux actions -->
-        <record id="action_list_stagiaires" model="ir.actions.act_window">
-            <field name="view_id" ref="view_list_stagiaires"/>
         </record>
 
    <!-- <record id="view_sale_order_form_inherit" model="ir.ui.view">

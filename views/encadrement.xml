@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+             <record id="view_encadrement_tree" model="ir.ui.view">
+                <field name="name">view.encadrement.tree</field>
+                <field name="model">encadrement</field>
+                <field name="arch" type="xml">
+                    <tree string="Encadrement">
+                        <field name="Stagiaire"/>
+                        <field name="Encadreur"/>
+                    </tree>
+                </field>
+             </record>
+              <record id="view_encadrement_form" model="ir.ui.view">
+                <field name="name">encadrement.form</field>
+                <field name="model">encadrement</field>
+                <field name="arch" type="xml">
+                    <form string="Encadrement">
+                        <field name="Stagiaire"/>
+                        <field name="Encadreur"/>
+                    </form>
+                </field>
+             </record>
+    </data>
+
+</odoo>

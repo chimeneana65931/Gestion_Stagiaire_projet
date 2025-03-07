@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!-- Groupe pour les Stagiaires -->
+        <record id="group_stagiaire" model="res.groups">
+            <field name="name">Stagiaire</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+        </record>
+
+        <!-- Groupe pour les Encadreurs (superviseurs des stagiaires) -->
+        <record id="group_encadreur" model="res.groups">
+            <field name="name">Encadreur</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+        </record>
+    </data>
+  </odoo>

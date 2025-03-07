@@ -74,8 +74,8 @@
 
      <record id="action_stagiaire_evaluation" model="ir.actions.act_window">
         <field name="name">Évaluations</field>
-        <field name="res_model">evaluation</field>
-        <field name="view_mode">tree,form</field>
+        <field name="res_model">hr.appraisal</field>
+        <field name="view_mode">tree,form,kanban</field>
         </record>
     </data>
 </odoo>
